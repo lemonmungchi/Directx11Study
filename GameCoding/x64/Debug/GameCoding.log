@@ -1,7 +1,7 @@
 ﻿  Game.cpp
   GameCoding.cpp
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11\GameCoding\GameCoding\GameCoding.cpp(103,1): warning C4002: 함수 같은 매크로 호출 'CreateWindowW'에 대해 인수가 너무 많습니다.
+  코드를 생성하고 있습니다...
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\GameCoding.cpp(103,1): warning C4002: 함수 같은 매크로 호출 'CreateWindowW'에 대해 인수가 너무 많습니다.
   (소스 파일 '/GameCoding.cpp'을(를) 컴파일하는 중)
   
-  코드를 생성하고 있습니다...
-  GameCoding.vcxproj -> C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11\GameCoding\Binaries\GameCoding.exe
+  GameCoding.vcxproj -> C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\GameCoding.exe
