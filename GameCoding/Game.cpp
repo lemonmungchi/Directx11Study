@@ -15,10 +15,16 @@ void Game::Init(HWND hwnd)
 	_width = GWinSizeX;
 	_height = GwinSizeY;
 
-	//TODO
+
 	CreateDeviceAndSwapChain();
 	CreateRenderTargetView();
 	SetViewport();
+
+	//삼각형 그리기 파트
+	CreateGeometry();
+	CreateVS();
+	CreateInputLayout();
+	CreatePS();
 }
 
 void Game::Update()
@@ -30,8 +36,27 @@ void Game::Render()
 {
 	RenderBegin();			//초기화
 
+	// IA - VS - RS - PS -OM
 	//TODO : 그리기
+	{
+		uint32 stride = sizeof(Vertex);
+		uint32 offset = 0;
+		//IA - 세팅부분
+		_deviceContext->IASetVertexBuffers(0, 1, _vertexBuffer.GetAddressOf(),&stride, &offset);
+		_deviceContext->IASetInputLayout(_inputLayout.Get());
+		_deviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);		//삼각형으로 만들어주기
 
+		//VS
+		_deviceContext->VSSetShader(_vertexShader.Get(), nullptr, 0);		//이걸로 일하게 
+
+		//RS
+
+		//PS
+		_deviceContext->PSSetShader(_pixelShader.Get(), nullptr, 0);
+		//OM
+
+		_deviceContext->Draw(_vertices.size(), 0);
+	}
 
 	RenderEnd();			//제출
 }
@@ -112,4 +137,85 @@ void Game::SetViewport()
 	_viewport.Height = static_cast<float>(_height);
 	_viewport.MaxDepth = 0.f;
 	_viewport.MaxDepth = 1.f;
+}
+
+void Game::CreateGeometry()
+{
+	//정점정보
+	{
+		_vertices.resize(3);
+
+		_vertices[0].position = Vec3(-0.5f, -0.5f, 0.f);
+		_vertices[0].color = Color(1.f, 0.f, 0.f, 1.f);
+		_vertices[1].position = Vec3(0.f, 0.5f, 0.f);
+		_vertices[1].color = Color(0.f, 1.f, 0.f, 1.f);
+		_vertices[2].position = Vec3(0.5f, -0.5f, 0.f);
+		_vertices[2].color = Color(0.f, 0.f, 1.f, 1.f);
+	}
+
+	//정점버퍼
+	{
+		D3D11_BUFFER_DESC desc;
+		ZeroMemory(&desc, sizeof(desc));
+		desc.Usage = D3D11_USAGE_IMMUTABLE;			//gpu만 read only
+		desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+		desc.ByteWidth = (uint32)(sizeof(Vertex) * _vertices.size());
+
+		D3D11_SUBRESOURCE_DATA data;
+		ZeroMemory(&data, sizeof(data));
+		data.pSysMem = _vertices.data();			//첫번째 시작주소 cpu값이 복사된다.
+
+		_device->CreateBuffer(&desc,&data, _vertexBuffer.GetAddressOf());
+	}
+	
+}
+
+void Game::CreateInputLayout()
+{
+	//입력에 대한 정보 ~바이트부터 뛰면 칼러인지 
+	D3D11_INPUT_ELEMENT_DESC layout[] =
+	{
+		{"POSITION",0,DXGI_FORMAT_R32G32B32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0},
+		{"COLOR",0,DXGI_FORMAT_R32G32B32A32_FLOAT,0,12,D3D11_INPUT_PER_VERTEX_DATA,0}
+	};
+
+	const int32 count = sizeof(layout)/sizeof(D3D11_INPUT_ELEMENT_DESC);
+	//VS과정의 입력에 관련있어서 vsBlob을 매개변수로 해줌
+	_device->CreateInputLayout(layout,count, _vsBlob->GetBufferPointer(),_vsBlob->GetBufferSize(), _inputLayout.GetAddressOf());
+}
+
+void Game::CreateVS()
+{
+	LoadShaderFromFile(L"Default.hlsl", "VS", "vs_5_0", _vsBlob);
+
+	HRESULT hr = _device->CreateVertexShader(_vsBlob->GetBufferPointer(),
+		_vsBlob->GetBufferSize(), nullptr, _vertexShader.GetAddressOf());
+	CHECK(hr);
+}
+
+void Game::CreatePS()
+{
+	LoadShaderFromFile(L"Default.hlsl", "PS", "ps_5_0", _psBlob);
+
+	HRESULT hr = _device->CreatePixelShader(_psBlob->GetBufferPointer(),
+		_psBlob->GetBufferSize(), nullptr, _pixelShader.GetAddressOf());
+	CHECK(hr);
+}
+
+void Game::LoadShaderFromFile(const wstring& path, const string& name, const string& version, ComPtr<ID3DBlob>& blob)
+{
+	const uint32 compileFlag = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;		//디버그 최적화 건너뛰기
+	HRESULT hr = ::D3DCompileFromFile(
+		path.c_str(),
+		nullptr,
+		D3D_COMPILE_STANDARD_FILE_INCLUDE,
+		name.c_str(),
+		version.c_str(),
+		compileFlag,
+		0,
+		blob.GetAddressOf(),
+		nullptr
+	);
+
+	CHECK(hr);
 }

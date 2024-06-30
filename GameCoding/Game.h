@@ -26,6 +26,28 @@ private:
 	/// 뷰포트 묘사 
 	/// </summary>
 	void SetViewport();
+//삼각형 그리기파트
+private:
+	/// <summary>
+	/// 기하학적인 도형만들기
+	/// </summary>
+	void CreateGeometry();
+	/// <summary>
+	/// 입력이 어떻게 이뤄져있는지
+	/// </summary>
+	void CreateInputLayout();
+	//파일에 있던걸 가져와서 어떻게 작동하게 할지 건내줘야해서 가져오는 함수 
+	void CreateVS();
+	void CreatePS();
+	/// <summary>
+	/// 쉐이더 로딩하는 함수 
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="name"></param>
+	/// <param name="version"></param>
+	/// <param name="blob"></param>
+	void LoadShaderFromFile(const wstring& path, const string& name, const string& version, ComPtr<ID3DBlob>& blob);
+
 private:
 	HWND _hwnd;
 	uint32 _width = 0;
@@ -47,5 +69,20 @@ private:
 	D3D11_VIEWPORT _viewport = { 0 };
 	float _clearColor[4] = { 0.5f,0.5f,0.5f,0.5f };
 	
+	//삼각형
+
+private:
+	//기하학적 도형 - cpu
+	vector<Vertex> _vertices; 
+	ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
+	ComPtr<ID3D11InputLayout> _inputLayout = nullptr;
+
+	//VS
+	ComPtr<ID3D11VertexShader> _vertexShader = nullptr;
+	ComPtr<ID3DBlob> _vsBlob = nullptr;
+	//PS
+	ComPtr<ID3D11PixelShader> _pixelShader = nullptr;
+	ComPtr<ID3DBlob> _psBlob = nullptr;
+
 };
 
