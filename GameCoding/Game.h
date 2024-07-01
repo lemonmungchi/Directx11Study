@@ -39,6 +39,9 @@ private:
 	//파일에 있던걸 가져와서 어떻게 작동하게 할지 건내줘야해서 가져오는 함수 
 	void CreateVS();
 	void CreatePS();
+	//쉐이더 리소스 뷰 
+	void CreateSRV();
+
 	/// <summary>
 	/// 쉐이더 로딩하는 함수 
 	/// </summary>
@@ -67,7 +70,7 @@ private:
 
 	//Misc 
 	D3D11_VIEWPORT _viewport = { 0 };
-	float _clearColor[4] = { 0.5f,0.5f,0.5f,0.5f };
+	float _clearColor[4] = { 0.f,0.f,0.f,0.f };
 	
 	//삼각형
 
@@ -76,6 +79,9 @@ private:
 	vector<Vertex> _vertices; 
 	ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
 	ComPtr<ID3D11InputLayout> _inputLayout = nullptr;
+	//인덱스버퍼 - 이거도 Geometry에 포함
+	vector<uint32> _indices;
+	ComPtr<ID3D11Buffer> _indexBuffer = nullptr;
 
 	//VS
 	ComPtr<ID3D11VertexShader> _vertexShader = nullptr;
@@ -83,6 +89,9 @@ private:
 	//PS
 	ComPtr<ID3D11PixelShader> _pixelShader = nullptr;
 	ComPtr<ID3DBlob> _psBlob = nullptr;
+
+	//SRV - 이미지를 어떻게 쓸것인가
+	ComPtr<ID3D11ShaderResourceView> _shaderResourceView = nullptr;
 
 };
 
