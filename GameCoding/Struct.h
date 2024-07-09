@@ -8,3 +8,9 @@ struct Vertex
 	//Color color;		//12부터시작
 	Vec2 uv;			
 };
+
+struct TransformData
+{
+	Vec3 offset;
+	float dummy;		//정렬을 위한 더미
+};

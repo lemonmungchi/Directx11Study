@@ -27,11 +27,21 @@ void Game::Init(HWND hwnd)
 	CreatePS();
 
 	CreateSRV();
+	CreateConstantBuffer();
 }
 
 void Game::Update()
 {
+	_transformData.offset.x = 0.3f;
+	_transformData.offset.y = 0.3f;
 
+	D3D11_MAPPED_SUBRESOURCE subResouce;
+	ZeroMemory(&subResouce, sizeof(subResouce));
+
+	//맵을 통해 값을 넣어줄 준비를 한다. 이후 값을 넣고(복사해주고) UNMAP
+	_deviceContext->Map(_constantBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &subResouce);
+	::memcpy(subResouce.pData,&_transformData,sizeof(_transformData));			//바로 cpu-> gpu 넘어가게 된다.
+	_deviceContext->Unmap(_constantBuffer.Get(), 0);
 }
 
 void Game::Render()
@@ -51,7 +61,8 @@ void Game::Render()
 
 		//VS
 		_deviceContext->VSSetShader(_vertexShader.Get(), nullptr, 0);		//이걸로 일하게 
-
+		_deviceContext->VSSetConstantBuffers(0, 1, _constantBuffer.GetAddressOf());
+		
 		//RS
 
 		//PS
@@ -140,7 +151,7 @@ void Game::SetViewport()
 	_viewport.TopLeftY = 0.f;
 	_viewport.Width = static_cast<float>(_width);
 	_viewport.Height = static_cast<float>(_height);
-	_viewport.MaxDepth = 0.f;
+	_viewport.MinDepth = 0.f;
 	_viewport.MaxDepth = 1.f;
 }
 
@@ -245,6 +256,19 @@ void Game::CreateSRV()
 
 	//쉐이더리소스뷰 만들기
 	hr = ::CreateShaderResourceView(_device.Get(), img.GetImages(), img.GetImageCount(), md, _shaderResourceView.GetAddressOf());
+	CHECK(hr);
+}
+
+void Game::CreateConstantBuffer()
+{
+	D3D11_BUFFER_DESC desc;
+	ZeroMemory(&desc, sizeof(desc));
+	desc.Usage = D3D11_USAGE_DYNAMIC;		//CPU Write + GPU Read
+	desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	desc.ByteWidth = sizeof(TransformData);
+	desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	
+	HRESULT hr = _device->CreateBuffer(&desc, nullptr, _constantBuffer.GetAddressOf());
 	CHECK(hr);
 }
 

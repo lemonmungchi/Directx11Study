@@ -41,6 +41,8 @@ private:
 	void CreatePS();
 	//쉐이더 리소스 뷰 
 	void CreateSRV();
+	//상수버퍼 만들기
+	void CreateConstantBuffer();
 
 	/// <summary>
 	/// 쉐이더 로딩하는 함수 
@@ -93,5 +95,9 @@ private:
 	//SRV - 이미지를 어떻게 쓸것인가
 	ComPtr<ID3D11ShaderResourceView> _shaderResourceView = nullptr;
 
+private:
+	//SRT scale, rotate translate
+	TransformData _transformData;
+	ComPtr<ID3D11Buffer> _constantBuffer;
 };
 

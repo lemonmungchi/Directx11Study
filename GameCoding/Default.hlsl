@@ -13,11 +13,16 @@ struct VS_OUTPUT
     float2 uv : TEXCOORD;
 };
 
+cbuffer TransformData : register(b0)
+{
+    float4 offset;
+}
+
 //정점 쉐이더- 위치관련 -> 레스터라이저-정점바탕으로 도형만들고 내/외부 판단 및 보간
 VS_OUTPUT VS(VS_INPUT input)
 {
     VS_OUTPUT output;
-    output.position = input.position;
+    output.position = input.position+offset;
     output.uv = input.uv;
     
     return output;
