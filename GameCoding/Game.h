@@ -39,7 +39,18 @@ private:
 	//파일에 있던걸 가져와서 어떻게 작동하게 할지 건내줘야해서 가져오는 함수 
 	void CreateVS();
 	void CreatePS();
-	//쉐이더 리소스 뷰 
+	/// <summary>
+	/// 레스터라이저만들기
+	/// </summary>
+	void CreateRasterizerState();
+	/// <summary>
+	/// uv관련
+	/// </summary>
+	void CreateSamplerState();
+	void CreateBlenderState();
+	/// <summary>
+	/// 쉐이더 리소스 뷰 
+	/// </summary>
 	void CreateSRV();
 	//상수버퍼 만들기
 	void CreateConstantBuffer();
@@ -85,6 +96,9 @@ private:
 	vector<uint32> _indices;
 	ComPtr<ID3D11Buffer> _indexBuffer = nullptr;
 
+	//RS
+	ComPtr<ID3D11RasterizerState> _rasterizerState = nullptr;
+	
 	//VS
 	ComPtr<ID3D11VertexShader> _vertexShader = nullptr;
 	ComPtr<ID3DBlob> _vsBlob = nullptr;
@@ -95,6 +109,8 @@ private:
 	//SRV - 이미지를 어떻게 쓸것인가
 	ComPtr<ID3D11ShaderResourceView> _shaderResourceView = nullptr;
 
+	ComPtr<ID3D11SamplerState> _samplerState = nullptr;
+	ComPtr<ID3D11BlendState> _blendState = nullptr;
 private:
 	//SRT scale, rotate translate
 	TransformData _transformData;
