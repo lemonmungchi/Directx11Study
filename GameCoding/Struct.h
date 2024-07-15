@@ -4,13 +4,14 @@
 
 struct Vertex
 {
-	Vec3 position;		//12¹ÙÀÌÆ® 0ºÎÅÍ½ÃÀÛ
-	//Color color;		//12ºÎÅÍ½ÃÀÛ
-	Vec2 uv;			
+	Vec3 position;		//12ë°”ì´íŠ¸ 0ë¶€í„°ì‹œì‘
+	//Color color;		//12ë¶€í„°ì‹œì‘
+	Vec2 uv;
 };
 
 struct TransformData
 {
-	Vec3 offset;
-	float dummy;		//Á¤·ÄÀ» À§ÇÑ ´õ¹Ì
+	Matrix matWorld = Matrix::Identity;
+	Matrix matView = Matrix::Identity;
+	Matrix matProjection= Matrix::Identity;
 };

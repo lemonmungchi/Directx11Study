@@ -7,56 +7,56 @@ public:
 	Game();
 	~Game();
 public:
-	void Init(HWND hwnd);		//À©µµ¿ì ÇÚµé¹Ş¾ÆÁÜ
+	void Init(HWND hwnd);		//ìœˆë„ìš° í•¸ë“¤ë°›ì•„ì¤Œ
 	void Update();
 	void Render();
 private:
 	/// <summary>
-	/// ±×¸®±â ÇÔ¼ö
+	/// ê·¸ë¦¬ê¸° í•¨ìˆ˜
 	/// </summary>
-	void RenderBegin();		
+	void RenderBegin();
 	void RenderEnd();
 private:
 	void CreateDeviceAndSwapChain();
 	/// <summary>
-	/// ¹öÆÛ¸¦ ¹¦»ç Tag¸¦ ´Ş¾Æ¼­ GPU¿¡ ¾Ë·ÁÁÖ±â À§ÇÔ
+	/// ë²„í¼ë¥¼ ë¬˜ì‚¬ Tagë¥¼ ë‹¬ì•„ì„œ GPUì— ì•Œë ¤ì£¼ê¸° ìœ„í•¨
 	/// </summary>
 	void CreateRenderTargetView();
 	/// <summary>
-	/// ºäÆ÷Æ® ¹¦»ç 
+	/// ë·°í¬íŠ¸ ë¬˜ì‚¬ 
 	/// </summary>
 	void SetViewport();
-//»ï°¢Çü ±×¸®±âÆÄÆ®
+	//ì‚¼ê°í˜• ê·¸ë¦¬ê¸°íŒŒíŠ¸
 private:
 	/// <summary>
-	/// ±âÇÏÇĞÀûÀÎ µµÇü¸¸µé±â
+	/// ê¸°í•˜í•™ì ì¸ ë„í˜•ë§Œë“¤ê¸°
 	/// </summary>
 	void CreateGeometry();
 	/// <summary>
-	/// ÀÔ·ÂÀÌ ¾î¶»°Ô ÀÌ·ïÁ®ÀÖ´ÂÁö
+	/// ì…ë ¥ì´ ì–´ë–»ê²Œ ì´ë¤„ì ¸ìˆëŠ”ì§€
 	/// </summary>
 	void CreateInputLayout();
-	//ÆÄÀÏ¿¡ ÀÖ´ø°É °¡Á®¿Í¼­ ¾î¶»°Ô ÀÛµ¿ÇÏ°Ô ÇÒÁö °Ç³»Áà¾ßÇØ¼­ °¡Á®¿À´Â ÇÔ¼ö 
+	//íŒŒì¼ì— ìˆë˜ê±¸ ê°€ì ¸ì™€ì„œ ì–´ë–»ê²Œ ì‘ë™í•˜ê²Œ í• ì§€ ê±´ë‚´ì¤˜ì•¼í•´ì„œ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜ 
 	void CreateVS();
 	void CreatePS();
 	/// <summary>
-	/// ·¹½ºÅÍ¶óÀÌÀú¸¸µé±â
+	/// ë ˆìŠ¤í„°ë¼ì´ì €ë§Œë“¤ê¸°
 	/// </summary>
 	void CreateRasterizerState();
 	/// <summary>
-	/// uv°ü·Ã
+	/// uvê´€ë ¨
 	/// </summary>
 	void CreateSamplerState();
 	void CreateBlenderState();
 	/// <summary>
-	/// ½¦ÀÌ´õ ¸®¼Ò½º ºä 
+	/// ì‰ì´ë” ë¦¬ì†ŒìŠ¤ ë·° 
 	/// </summary>
 	void CreateSRV();
-	//»ó¼ö¹öÆÛ ¸¸µé±â
+	//ìƒìˆ˜ë²„í¼ ë§Œë“¤ê¸°
 	void CreateConstantBuffer();
 
 	/// <summary>
-	/// ½¦ÀÌ´õ ·ÎµùÇÏ´Â ÇÔ¼ö 
+	/// ì‰ì´ë” ë¡œë”©í•˜ëŠ” í•¨ìˆ˜ 
 	/// </summary>
 	/// <param name="path"></param>
 	/// <param name="name"></param>
@@ -71,34 +71,34 @@ private:
 
 private:
 	//Device & SwapChain
-	// I: ÀÎÅÍÆäÀÌ½º Comptr -> ½º¸¶Æ® Æ÷ÀÎÅÍ- ÀÚµ¿°ü¸®ÇØÁÜ, wrl¿¡ ÀÖ´Ù.
-	ComPtr<ID3D11Device> _device; 
+	// I: ì¸í„°í˜ì´ìŠ¤ Comptr -> ìŠ¤ë§ˆíŠ¸ í¬ì¸í„°- ìë™ê´€ë¦¬í•´ì¤Œ, wrlì— ìˆë‹¤.
+	ComPtr<ID3D11Device> _device;
 	ComPtr<ID3D11DeviceContext> _deviceContext;
-	//DXGI : DX¿Í´Â µ¶¸³ÀûÀ¸·Î ÇÏÀ§ ¼öÁØ ÀÛ¾÷ °ü¸® => ½Ã½ºÅÛ,ÇÏµå¿ş¾î Åë½Å
-	//½º¿ÒÃ¼ÀÎ-> ±×¸®´Â °Í°ú º¸¿©ÁÖ´Â °Í µû·Î ÇØ¾ß º¸Åë ¹æ½Ä ->Àü¸é ÈÄ¸é °í¼Óº¹»ç
+	//DXGI : DXì™€ëŠ” ë…ë¦½ì ìœ¼ë¡œ í•˜ìœ„ ìˆ˜ì¤€ ì‘ì—… ê´€ë¦¬ => ì‹œìŠ¤í…œ,í•˜ë“œì›¨ì–´ í†µì‹ 
+	//ìŠ¤ì™‘ì²´ì¸-> ê·¸ë¦¬ëŠ” ê²ƒê³¼ ë³´ì—¬ì£¼ëŠ” ê²ƒ ë”°ë¡œ í•´ì•¼ ë³´í†µ ë°©ì‹ ->ì „ë©´ í›„ë©´ ê³ ì†ë³µì‚¬
 	ComPtr<IDXGISwapChain> _swapChain = nullptr;
 
-	///RTV ·»´õÅ¸ÄÏºä
+	///RTV ë Œë”íƒ€ì¼“ë·°
 	ComPtr<ID3D11RenderTargetView> _renderTargetView;
 
 	//Misc 
 	D3D11_VIEWPORT _viewport = { 0 };
 	float _clearColor[4] = { 0.f,0.f,0.f,0.f };
-	
-	//»ï°¢Çü
+
+	//ì‚¼ê°í˜•
 
 private:
-	//±âÇÏÇĞÀû µµÇü - cpu
-	vector<Vertex> _vertices; 
+	//ê¸°í•˜í•™ì  ë„í˜• - cpu
+	vector<Vertex> _vertices;
 	ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
 	ComPtr<ID3D11InputLayout> _inputLayout = nullptr;
-	//ÀÎµ¦½º¹öÆÛ - ÀÌ°Åµµ Geometry¿¡ Æ÷ÇÔ
+	//ì¸ë±ìŠ¤ë²„í¼ - ì´ê±°ë„ Geometryì— í¬í•¨
 	vector<uint32> _indices;
 	ComPtr<ID3D11Buffer> _indexBuffer = nullptr;
 
 	//RS
 	ComPtr<ID3D11RasterizerState> _rasterizerState = nullptr;
-	
+
 	//VS
 	ComPtr<ID3D11VertexShader> _vertexShader = nullptr;
 	ComPtr<ID3DBlob> _vsBlob = nullptr;
@@ -106,7 +106,7 @@ private:
 	ComPtr<ID3D11PixelShader> _pixelShader = nullptr;
 	ComPtr<ID3DBlob> _psBlob = nullptr;
 
-	//SRV - ÀÌ¹ÌÁö¸¦ ¾î¶»°Ô ¾µ°ÍÀÎ°¡
+	//SRV - ì´ë¯¸ì§€ë¥¼ ì–´ë–»ê²Œ ì“¸ê²ƒì¸ê°€
 	ComPtr<ID3D11ShaderResourceView> _shaderResourceView = nullptr;
 
 	ComPtr<ID3D11SamplerState> _samplerState = nullptr;
@@ -115,5 +115,9 @@ private:
 	//SRT scale, rotate translate
 	TransformData _transformData;
 	ComPtr<ID3D11Buffer> _constantBuffer;
+
+	Vec3 _localposition = { 0.f,0.f,0.f };
+	Vec3 _localRotation = { 0.f,0.f,0.f };
+	Vec3 _localScale = { 1.f,1.f,1.f };
 };
 
