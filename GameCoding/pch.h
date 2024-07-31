@@ -38,4 +38,7 @@ using namespace Microsoft::WRL;
 #pragma comment(lib,"DirectXTex\\DirectXTex.lib")
 #endif
 
-#define CHECK(p) assert(SUCCEEDED(hr)); //¼º°øÇß´ÂÁö Ã¼Å©ÇØÁØ´Ù.
+#define CHECK(p) assert(SUCCEEDED(hr)); //ì„±ê³µí–ˆëŠ”ì§€ ì²´í¬í•´ì¤€ë‹¤.
+
+//Engine ê´€ë ¨
+#include "Graphics.h"
