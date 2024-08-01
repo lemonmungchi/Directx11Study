@@ -15,7 +15,9 @@ void Game::Init(HWND hwnd)
 
 	//_graphics=make_shared<Graphics>(hwnd):
 	_graphics = new Graphics(hwnd);
-
+	_vertexBuffer = new VertexBuffer(_graphics->GetDevice());
+	_indexBuffer = new IndexBuffer(_graphics->GetDevice());
+	_inputLayout = new InputLayout(_graphics->GetDevice());
 	//삼각형 그리기 파트
 	CreateGeometry();
 	CreateVS();
@@ -63,9 +65,9 @@ void Game::Render()
 		uint32 stride = sizeof(Vertex);
 		uint32 offset = 0;
 		//IA - 세팅부분
-		_deviceContext->IASetVertexBuffers(0, 1, _vertexBuffer.GetAddressOf(), &stride, &offset);
-		_deviceContext->IASetIndexBuffer(_indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		_deviceContext->IASetInputLayout(_inputLayout.Get());
+		_deviceContext->IASetVertexBuffers(0, 1, _vertexBuffer->GetComPtr().GetAddressOf(), &stride, &offset);
+		_deviceContext->IASetIndexBuffer(_indexBuffer->GetComPtr().Get(), DXGI_FORMAT_R32_UINT, 0);
+		_deviceContext->IASetInputLayout(_inputLayout->GetComPtr().Get());
 		_deviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);		//삼각형으로 만들어주기
 
 		//VS
@@ -89,78 +91,55 @@ void Game::Render()
 }
 
 
-void Game::CreateGeometry()
-{
-	//정점정보
+	void Game::CreateGeometry()
 	{
-		_vertices.resize(4);
+		//정점정보
+		{
+			_vertices.resize(4);
 
-		//13 -> 012
-		//02 -> 213
-		_vertices[0].position = Vec3(-0.5f, -0.5f, 0.f);
-		_vertices[0].uv = Vec2(0.f, 1.f);
-		//_vertices[0].color = Color(1.f, 0.f, 0.f, 1.f);
-		_vertices[1].position = Vec3(-0.5f, 0.5f, 0.f);
-		_vertices[1].uv = Vec2(0.f, 0.f);
-		//_vertices[1].color = Color(1.f, 0.f, 0.f, 1.f);
-		_vertices[2].position = Vec3(0.5f, -0.5f, 0.f);
-		_vertices[2].uv = Vec2(1.f, 1.f);
-		//_vertices[2].color = Color(1.f, 0.f, 0.f, 1.f);
-		_vertices[3].position = Vec3(0.5f, 0.5f, 0.f);
-		_vertices[3].uv = Vec2(1.f, 0.f);
-		//_vertices[3].color = Color(1.f, 0.f, 0.f, 1.f);
-	}
+			//13 -> 012
+			//02 -> 213
+			_vertices[0].position = Vec3(-0.5f, -0.5f, 0.f);
+			_vertices[0].uv = Vec2(0.f, 1.f);
+			//_vertices[0].color = Color(1.f, 0.f, 0.f, 1.f);
+			_vertices[1].position = Vec3(-0.5f, 0.5f, 0.f);
+			_vertices[1].uv = Vec2(0.f, 0.f);
+			//_vertices[1].color = Color(1.f, 0.f, 0.f, 1.f);
+			_vertices[2].position = Vec3(0.5f, -0.5f, 0.f);
+			_vertices[2].uv = Vec2(1.f, 1.f);
+			//_vertices[2].color = Color(1.f, 0.f, 0.f, 1.f);
+			_vertices[3].position = Vec3(0.5f, 0.5f, 0.f);
+			_vertices[3].uv = Vec2(1.f, 0.f);
+			//_vertices[3].color = Color(1.f, 0.f, 0.f, 1.f);
+		}
 
-	//정점버퍼
-	{
-		D3D11_BUFFER_DESC desc;
-		ZeroMemory(&desc, sizeof(desc));
-		desc.Usage = D3D11_USAGE_IMMUTABLE;			//gpu만 read only
-		desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-		desc.ByteWidth = (uint32)(sizeof(Vertex) * _vertices.size());
-
-		D3D11_SUBRESOURCE_DATA data;
-		ZeroMemory(&data, sizeof(data));
-		data.pSysMem = _vertices.data();			//첫번째 시작주소 cpu값이 복사된다.
-
-		HRESULT hr = _graphics->GetDevice()->CreateBuffer(&desc, &data, _vertexBuffer.GetAddressOf());
-		CHECK(hr);
-	}
+		//정점버퍼
+		{
+			_vertexBuffer->Create(_vertices);
+		}
 
 	//Index
 	{
+		//중복되는 점의 사용을 줄이려고 
 		_indices = { 0,1,2,2,1,3 };
 	}
 
 	//IndexBuffer
 	{
-		D3D11_BUFFER_DESC desc;
-		ZeroMemory(&desc, sizeof(desc));
-		desc.Usage = D3D11_USAGE_IMMUTABLE;			//gpu만 read only
-		desc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-		desc.ByteWidth = (uint32)(sizeof(uint32) * _indices.size());
-
-		D3D11_SUBRESOURCE_DATA data;
-		ZeroMemory(&data, sizeof(data));
-		data.pSysMem = _indices.data();			//첫번째 시작주소 cpu값이 복사된다.
-
-		HRESULT hr = _graphics->GetDevice()->CreateBuffer(&desc, &data, _indexBuffer.GetAddressOf());
-		CHECK(hr);
+		_indexBuffer->Create(_indices);
 	}
 }
 
 void Game::CreateInputLayout()
 {
 	//입력에 대한 정보 ~바이트부터 뛰면 칼러인지 
-	D3D11_INPUT_ELEMENT_DESC layout[] =
+	vector<D3D11_INPUT_ELEMENT_DESC> layout
 	{
 		{"POSITION",0,DXGI_FORMAT_R32G32B32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0},
 		{"TEXCOORD",0,DXGI_FORMAT_R32G32_FLOAT,0,12,D3D11_INPUT_PER_VERTEX_DATA,0}
 	};
-
-	const int32 count = sizeof(layout) / sizeof(D3D11_INPUT_ELEMENT_DESC);
-	//VS과정의 입력에 관련있어서 vsBlob을 매개변수로 해줌
-	_graphics->GetDevice()->CreateInputLayout(layout, count, _vsBlob->GetBufferPointer(), _vsBlob->GetBufferSize(), _inputLayout.GetAddressOf());
+	_inputLayout->Create(layout,_vsBlob);
+	
 }
 
 void Game::CreateVS()

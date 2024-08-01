@@ -57,18 +57,23 @@ private:
 private:
 	//기하학적 도형 - cpu
 	vector<Vertex> _vertices;
-	ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
-	ComPtr<ID3D11InputLayout> _inputLayout = nullptr;
+	VertexBuffer* _vertexBuffer;
+
+	//ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
+	
 	//인덱스버퍼 - 이거도 Geometry에 포함
 	vector<uint32> _indices;
-	ComPtr<ID3D11Buffer> _indexBuffer = nullptr;
-
-	//RS
-	ComPtr<ID3D11RasterizerState> _rasterizerState = nullptr;
+	IndexBuffer* _indexBuffer;
+	InputLayout* _inputLayout;
+	//ComPtr<ID3D11InputLayout> _inputLayout = nullptr;
 
 	//VS
 	ComPtr<ID3D11VertexShader> _vertexShader = nullptr;
 	ComPtr<ID3DBlob> _vsBlob = nullptr;
+
+	//RS
+	ComPtr<ID3D11RasterizerState> _rasterizerState = nullptr;
+
 	//PS
 	ComPtr<ID3D11PixelShader> _pixelShader = nullptr;
 	ComPtr<ID3DBlob> _psBlob = nullptr;

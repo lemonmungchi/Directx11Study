@@ -42,3 +42,6 @@ using namespace Microsoft::WRL;
 
 //Engine 관련
 #include "Graphics.h"
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
+#include "InputLayout.h"
