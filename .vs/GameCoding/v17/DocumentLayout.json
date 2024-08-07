@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -27,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\ConstantBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\ConstantBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -41,14 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\VertexData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\VertexData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Geometry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|solutionrelative:GameCoding\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{211ABAED-AF23-4756-A832-F6ABBDB06E96}|GameCoding\\GameCoding.vcxproj|C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\GeometryHelper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -62,24 +54,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 196,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "Geometry.h",
               "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.h",
               "RelativeDocumentMoniker": "GameCoding\\Geometry.h",
               "ToolTip": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.h",
               "RelativeToolTip": "GameCoding\\Geometry.h",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAcwAoAAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-01T14:22:39.065Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Texture.h",
               "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Texture.h",
               "RelativeDocumentMoniker": "GameCoding\\Texture.h",
@@ -87,12 +80,11 @@
               "RelativeToolTip": "GameCoding\\Texture.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-02T10:49:17.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:49:17.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "pch.h",
               "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\pch.h",
               "RelativeDocumentMoniker": "GameCoding\\pch.h",
@@ -100,12 +92,11 @@
               "RelativeToolTip": "GameCoding\\pch.h",
               "ViewState": "AQIAACoAAAAAAAAAAADwvzYAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-02T10:33:40.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:33:40.471Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ConstantBuffer.h",
               "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\ConstantBuffer.h",
               "RelativeDocumentMoniker": "GameCoding\\ConstantBuffer.h",
@@ -113,21 +104,7 @@
               "RelativeToolTip": "GameCoding\\ConstantBuffer.h",
               "ViewState": "AQIAABAAAAAAAAAAAAAkwB0AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-02T10:22:17.065Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Shader.h",
-              "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Shader.h",
-              "RelativeDocumentMoniker": "GameCoding\\Shader.h",
-              "ToolTip": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Shader.h",
-              "RelativeToolTip": "GameCoding\\Shader.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-02T08:10:04.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:22:17.065Z"
             },
             {
               "$type": "Document",
@@ -137,7 +114,7 @@
               "RelativeDocumentMoniker": "GameCoding\\Game.h",
               "ToolTip": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Game.h",
               "RelativeToolTip": "GameCoding\\Game.h",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAADUAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-06-26T06:34:35.776Z",
               "EditorCaption": ""
@@ -152,12 +129,11 @@
               "RelativeToolTip": "GameCoding\\VertexData.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-01T14:24:25.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T14:24:25.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "GeometryHelper.h",
               "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\GeometryHelper.h",
               "RelativeDocumentMoniker": "GameCoding\\GeometryHelper.h",
@@ -183,8 +159,7 @@
               "RelativeToolTip": "GameCoding\\ConstantBuffer.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAADwvwIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-02T10:22:33.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:22:33.02Z"
             },
             {
               "$type": "Document",
@@ -194,22 +169,9 @@
               "RelativeDocumentMoniker": "GameCoding\\Game.cpp",
               "ToolTip": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Game.cpp",
               "RelativeToolTip": "GameCoding\\Game.cpp",
-              "ViewState": "AQIAACUAAAAAAAAAAAAqwDMAAAAAAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAB0AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-02T08:19:30.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Geometry.cpp",
-              "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.cpp",
-              "RelativeDocumentMoniker": "GameCoding\\Geometry.cpp",
-              "ToolTip": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Geometry.cpp",
-              "RelativeToolTip": "GameCoding\\Geometry.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-01T14:24:27.973Z",
               "EditorCaption": ""
             },
             {
@@ -222,12 +184,11 @@
               "RelativeToolTip": "GameCoding\\Shader.cpp",
               "ViewState": "AQIAAAIAAAAAAAAAAAAAAA8AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-02T08:10:17.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T08:10:17.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Texture.cpp",
               "DocumentMoniker": "C:\\Users\\khc11\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\Project\\Directx11Study\\GameCoding\\Texture.cpp",
               "RelativeDocumentMoniker": "GameCoding\\Texture.cpp",
@@ -235,8 +196,7 @@
               "RelativeToolTip": "GameCoding\\Texture.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-02T10:51:39.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:51:39.072Z"
             }
           ]
         }

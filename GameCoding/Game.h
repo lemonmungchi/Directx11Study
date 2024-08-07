@@ -13,7 +13,6 @@ public:
 private:
 
 private:
-
 	/// <summary>
 	/// 레스터라이저만들기
 	/// </summary>
