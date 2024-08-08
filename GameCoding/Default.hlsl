@@ -39,6 +39,8 @@ VS_OUTPUT VS(VS_INPUT input)
 
 //함수의 인자같은 존재, 오브젝트마다 달라질수있다.
 Texture2D texture0 : register(t0); //레지스터에 등록
+
+//uv 옵션 관련
 SamplerState sampler0 : register(s0);
 
 //모든 픽셀단위 대상 - 색상관련
