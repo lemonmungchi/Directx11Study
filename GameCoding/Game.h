@@ -11,23 +11,10 @@ public:
 	void Update();
 	void Render();
 private:
-
-private:
-	/// <summary>
-	/// 레스터라이저만들기
-	/// </summary>
-	void CreateRasterizerState();
-	/// <summary>
-	/// uv관련
-	/// </summary>
-	void CreateSamplerState();
-	void CreateBlenderState();
-
-private:
 	HWND _hwnd;
 
 	shared_ptr<Graphics> _graphics;
-
+	shared_ptr<Pipeline> _pipeline;
 
 private:
 	//기하학적 도형 - cpu

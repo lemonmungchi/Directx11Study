@@ -28,6 +28,8 @@ void Game::Init(HWND hwnd)
 	_samplerState = make_shared<SamplerState>(_graphics->GetDevice());
 	_blendState = make_shared<BlendState>(_graphics->GetDevice());
 
+	_pipeline = make_shared<Pipeline>(_graphics->GetDeviceContext());
+
 	//삼각형 그리기 파트
 	/// <summary>
 	/// 기하학적인 도형만들기
@@ -84,29 +86,23 @@ void Game::Render()
 	// IA - VS - RS - PS -OM
 	//TODO : 그리기
 	{
-		uint32 stride = sizeof(VertexTextureData);
-		uint32 offset = 0;
-		//IA - 세팅부분
-		_deviceContext->IASetVertexBuffers(0, 1, _vertexBuffer->GetComPtr().GetAddressOf(), &stride, &offset);
-		_deviceContext->IASetIndexBuffer(_indexBuffer->GetComPtr().Get(), DXGI_FORMAT_R32_UINT, 0);
-		_deviceContext->IASetInputLayout(_inputLayout->GetComPtr().Get());
-		_deviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);		//삼각형으로 만들어주기
+		PipelineInfo info;
+		info.inputLayout = _inputLayout;
+		info.vertexShader = _vertexShader;
+		info.pixelShader = _pixelShader;
+		info.rasterizerState = _rasterizerState;
+		info.blendState = _blendState;
 
-		//VS
-		_deviceContext->VSSetShader(_vertexShader->GetComPtr().Get(), nullptr, 0);		//이걸로 일하게 
-		_deviceContext->VSSetConstantBuffers(0, 1, _constantBuffer->GetComPtr().GetAddressOf());
+		_pipeline->UpdatePipeline(info);
 
-		//RS
-		_deviceContext->RSSetState(_rasterizerState->GetComPtr().Get());
+		auto _deviceContext = _graphics->GetDeviceContext();
 
-		//PS
-		_deviceContext->PSSetShader(_pixelShader->GetComPtr().Get(), nullptr, 0);
-		_deviceContext->PSSetShaderResources(0, 1, _texture1->GetComPtr().GetAddressOf());		//0번슬롯에 1개
-		_deviceContext->PSSetSamplers(0, 1, _samplerState->GetComPtr().GetAddressOf());
-		//OM
-		_deviceContext->OMSetBlendState(_blendState->GetComPtr().Get(), _blendState->GetBlendFactor(), _blendState->GetSampleMask());
-		//_deviceContext->Draw(_vertices.size(), 0);
-		_deviceContext->DrawIndexed(_geometry->GetIndexCount(), 0, 0);
+		_pipeline->SetVertexBuffer(_vertexBuffer);
+		_pipeline->SetIndexBuffer(_indexBuffer);
+		_pipeline->SetConstantBuffer(0, SS_VertexShader, _constantBuffer);
+		_pipeline->SetTexture(0, SS_PixelShader, _texture1);
+		_pipeline->SetSamplerState(0, SS_PixelShader, _samplerState);
+		_pipeline->DrawIndexed(_geometry->GetIndexCount(), 0, 0);
 	}
 
 	_graphics->RenderEnd();			//제출
