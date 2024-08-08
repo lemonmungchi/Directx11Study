@@ -46,7 +46,7 @@ private:
 	shared_ptr<VertexShader> _vertexShader;
 
 	//RS
-	ComPtr<ID3D11RasterizerState> _rasterizerState = nullptr;
+	shared_ptr<RasterizerState> _rasterizerState;
 
 	//PS
 	shared_ptr<PixelShader> _pixelShader; 
@@ -54,8 +54,8 @@ private:
 	//SRV - 이미지를 어떻게 쓸것인가 - 텍스처
 	shared_ptr<Texture> _texture1;
 
-	ComPtr<ID3D11SamplerState> _samplerState = nullptr;
-	ComPtr<ID3D11BlendState> _blendState = nullptr;
+	shared_ptr<SamplerState> _samplerState;
+	shared_ptr<BlendState> _blendState;
 private:
 	//SRT scale, rotate translate
 	TransformData _transformData;
