@@ -1,4 +1,5 @@
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\BlendState.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\BlendState.obj
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Camera.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\Camera.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Component.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\Component.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\ConstantBuffer.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\ConstantBuffer.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Game.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\Game.obj
@@ -9,6 +10,8 @@ C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Geometry
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Graphics.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\Graphics.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\IndexBuffer.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\IndexBuffer.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\InputLayout.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\InputLayout.obj
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\MeshRenderer.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\MeshRenderer.obj
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\MonoBehaviour.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\MonoBehaviour.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\pch.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\pch.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Pipeline.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\Pipeline.obj
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\RasterizerState.cpp;C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\x64\Debug\RasterizerState.obj

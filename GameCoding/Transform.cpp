@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Transform.h"
 
-Transform::Transform()
+Transform::Transform()  : Super(ComponentType::Transform)
 {
 }
 
@@ -9,7 +9,7 @@ Transform::~Transform()
 {
 }
 
-void Transform::Init()
+void Transform::Awake()
 {
 }
 
@@ -66,14 +66,6 @@ void Transform::UpdateTransform()
 	Quaternion quat;
 	_matWorld.Decompose(_scale, quat, _position);
 	_rotation = ToEulerAngles(quat);
-
-	// v[x y z ?]
-	//방식1.TransformCoor
-	//방식2.TransformNormal- 방향만
-	_right = Vec3::TransformNormal(Vec3::Right, _matWorld);
-	_up = Vec3::TransformNormal(Vec3::Up, _matWorld);
-	//라이브러리-오른손좌표계- 반대로사용해야한다.
-	_look = Vec3::TransformNormal(Vec3::Backward, _matWorld);
 
 	//자식계층 관리
 	for (const shared_ptr<Transform>& child : _children)

@@ -3,12 +3,13 @@
 
 class Transform: public Component
 {
+	using Super = Component;
 public:
 	Transform();
 	~Transform();
 
 
-	virtual void  Init() override;
+	virtual void  Awake() override;
 	virtual void Update() override;
 
 	void UpdateTransform();
@@ -29,6 +30,12 @@ public:
 	void SetRotation(const Vec3& worldRotation);
 	Vec3 GetPosition() { return _position; }
 	void SetPosition(const Vec3& worldPosition);
+	//방식1.TransformCoord 
+	//방식2.TransformNormal- 방향만
+	Vec3 GetRight() { return _matWorld.Right(); }
+	Vec3 GetUp() { return _matWorld.Up(); }
+	//라이브러리-오른손좌표계- 반대로사용해야한다.
+	Vec3 GetLook() { return _matWorld.Backward(); }
 
 	Matrix GetWorldMatrix() { return _matWorld; }
 
@@ -57,10 +64,6 @@ private:
 	Vec3 _scale;
 	Vec3 _rotation;
 	Vec3 _position;
-
-	Vec3 _right;
-	Vec3 _up;
-	Vec3 _look;
 
 private:
 	//부모 오브젝트

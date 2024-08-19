@@ -12,13 +12,16 @@ struct VS_OUTPUT
     //float4 color : COLOR;
     float2 uv : TEXCOORD;
 };
-
-cbuffer TransformData : register(b0)
+//카메라와 물체 따로 -> 카메라는 하나 물체는 계속 바꾸면서 사용
+cbuffer CameraData : register(b0)
 {
-    //hlsl상의 순서와 코드상의 순서가 달라서
-    row_major matrix matWorld;
     row_major matrix matView;
     row_major matrix matProjection;
+}
+
+cbuffer TransformData : register(b1)
+{
+    row_major matrix matWorld;
 }
 
 //정점 쉐이더- 위치관련 -> 레스터라이저-정점바탕으로 도형만들고 내/외부 판단 및 보간
