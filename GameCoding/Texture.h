@@ -1,8 +1,10 @@
 #pragma once
+#include "ResourceBase.h"
 
 //SRV - 이미지를 어떻게 쓸것인가 - 텍스처
-class Texture
+class Texture : public ResourceBase
 {
+	using Super = ResourceBase;
 public:
 	Texture(ComPtr<ID3D11Device> device);
 	~Texture();

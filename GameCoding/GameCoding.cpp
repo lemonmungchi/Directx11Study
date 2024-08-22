@@ -28,8 +28,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     if (!InitInstance(hInstance, nCmdShow))
         return FALSE;
 
-    Game game;
-    game.Init(hWnd);
+    GGame->Init(hWnd);
 
     MSG msg = {};
 
@@ -43,8 +42,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else //게임 프레임워크 시작
         {
-            game.Update();
-            game.Render();
+            GGame->Update();
+            GGame->Render();
         }
     }
 

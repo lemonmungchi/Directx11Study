@@ -63,6 +63,27 @@
     <Filter Include="소스 파일\00.Engine\Component\Rendering">
       <UniqueIdentifier>{d3fbfaba-b734-4779-b61b-cc2198f0eb71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\00.Engine\Manager">
+      <UniqueIdentifier>{1622a8a2-472a-4421-b80c-8b0b9553cb9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.Engine\Manager\Input">
+      <UniqueIdentifier>{513042bd-2be8-4b8c-9762-7be483b425b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.Engine\Manager\Scene">
+      <UniqueIdentifier>{5e37a908-3473-4731-a0dd-41c03c30d175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.Engine\Manager\Time">
+      <UniqueIdentifier>{a2a7635e-0823-402e-9e80-8509bfd29881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.Engine\Manager\Resource">
+      <UniqueIdentifier>{21194eb6-839a-4b73-bab5-673d31e29643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.Engine\Resource">
+      <UniqueIdentifier>{bac29aa0-8e6b-425b-a5bb-7d769e907bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.Engine\Manager\Render">
+      <UniqueIdentifier>{40324995-abd9-419b-865a-70d65b35e279}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCoding.h">
@@ -116,14 +137,11 @@
     <ClInclude Include="VertexData.h">
       <Filter>소스 파일\00.Engine\Pipeline\00.Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="ShaderBase.h">
       <Filter>소스 파일\00.Engine\Pipeline\02.VertexShader</Filter>
     </ClInclude>
     <ClInclude Include="ConstantBuffer.h">
       <Filter>소스 파일\00.Engine\Pipeline\02.VertexShader</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>소스 파일\00.Engine\Pipeline\04.PixelShader</Filter>
     </ClInclude>
     <ClInclude Include="RasterizerState.h">
       <Filter>소스 파일\00.Engine\Pipeline\03.Rasterizer</Filter>
@@ -152,7 +170,48 @@
     <ClInclude Include="Camera.h">
       <Filter>소스 파일\00.Engine\Component\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="MeshRenderer.h" />
+    <ClInclude Include="MeshRenderer.h">
+      <Filter>소스 파일\00.Engine\Component\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\00.Engine\Manager\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\00.Engine\Manager\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>소스 파일\00.Engine\Manager\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>소스 파일\00.Engine\Manager\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceBase.h">
+      <Filter>소스 파일\00.Engine\Manager\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>소스 파일\00.Engine\Manager\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>소스 파일\00.Engine\Manager\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderHelper.h">
+      <Filter>소스 파일\00.Engine\Manager\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameCoding.rc">
@@ -201,14 +260,11 @@
     <ClCompile Include="VertexData.cpp">
       <Filter>소스 파일\00.Engine\Pipeline\00.Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
+    <ClCompile Include="ShaderBase.cpp">
       <Filter>소스 파일\00.Engine\Pipeline\02.VertexShader</Filter>
     </ClCompile>
     <ClCompile Include="ConstantBuffer.cpp">
       <Filter>소스 파일\00.Engine\Pipeline\02.VertexShader</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>소스 파일\00.Engine\Pipeline\04.PixelShader</Filter>
     </ClCompile>
     <ClCompile Include="RasterizerState.cpp">
       <Filter>소스 파일\00.Engine\Pipeline\03.Rasterizer</Filter>
@@ -238,7 +294,46 @@
       <Filter>소스 파일\00.Engine\Component\Camera</Filter>
     </ClCompile>
     <ClCompile Include="MeshRenderer.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\00.Engine\Component\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceBase.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>소스 파일\00.Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderHelper.cpp">
+      <Filter>소스 파일\00.Engine\Manager\Render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

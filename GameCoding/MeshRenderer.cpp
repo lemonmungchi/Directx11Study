@@ -1,8 +1,10 @@
 #include "pch.h"
 #include "MeshRenderer.h"
 #include "Camera.h"
+#include "Game.h"
+#include "Pipeline.h"
 
-MeshRenderer::MeshRenderer(ComPtr<ID3D11Device> device, ComPtr<ID3D11DeviceContext> deviceContext) 
+MeshRenderer::MeshRenderer(ComPtr<ID3D11Device> device, ComPtr<ID3D11DeviceContext> deviceContext)
 	: Super(ComponentType::MeshRenderer), _device(device)
 {
 	//정점정보 - 사각형 만들기
@@ -30,23 +32,9 @@ MeshRenderer::MeshRenderer(ComPtr<ID3D11Device> device, ComPtr<ID3D11DeviceConte
 	_pixelShader = make_shared<PixelShader>(device);
 	_pixelShader->Create(L"Default.hlsl", "PS", "ps_5_0");
 
-	_rasterizerState = make_shared<RasterizerState>(device);
-	_rasterizerState->Create();
-
-	_blendState = make_shared<BlendState>(device);
-	_blendState->Create();
-
-	_transformBuffer = make_shared<ConstantBuffer<TransformData>>(device, deviceContext);
-	_transformBuffer->Create();
-
-	_cameraBuffer = make_shared<ConstantBuffer<CameraData>>(device, deviceContext);
-	_cameraBuffer->Create();
-
 	_texture1 = make_shared<Texture>(device);
 	_texture1->Create(L"cat.png");
 
-	_samplerState = make_shared<SamplerState>(device);
-	_samplerState->Create();
 }
 
 MeshRenderer::~MeshRenderer()
@@ -56,37 +44,5 @@ MeshRenderer::~MeshRenderer()
 
 void MeshRenderer::Update()
 {
-	_cameraData.matView = Camera::S_MatView;
-	//_cameraData.matView = Matrix::Identity;
-	_cameraData.matProjection = Camera::S_MatProjection;
-	//_cameraData.matProjection = Matrix::Identity;
-	_cameraBuffer->CopyData(_cameraData);
 
-	_transformData.matWorld = GetTransform()->GetWorldMatrix();
-	_transformBuffer->CopyData(_transformData);
-
-
-	//Render
-}
-
-void MeshRenderer::Render(shared_ptr<Pipeline> pipeline)
-{
-	PipelineInfo info;
-	info.inputLayout = _inputLayout;
-	info.vertexShader = _vertexShader;
-	info.pixelShader = _pixelShader;
-	info.rasterizerState = _rasterizerState;
-	info.blendState = _blendState;
-	pipeline->UpdatePipeline(info);
-
-	pipeline->SetVertexBuffer(_vertexBuffer);
-	pipeline->SetIndexBuffer(_indexBuffer);
-
-	pipeline->SetConstantBuffer(0, SS_VertexShader, _cameraBuffer);
-	pipeline->SetConstantBuffer(1, SS_VertexShader, _transformBuffer);
-
-	pipeline->SetTexture(0, SS_PixelShader, _texture1);
-	pipeline->SetSamplerState(0, SS_PixelShader, _samplerState);
-
-	pipeline->DrawIndexed(_geometry->GetIndexCount(), 0, 0);
 }
