@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "Mesh.h"
+#include "Shader.h"
+#include "Material.h"
+#include "Animation.h"
 
 ResourceManager::ResourceManager(ComPtr<ID3D11Device> device)
 	:_device(device)
@@ -10,7 +14,11 @@ ResourceManager::ResourceManager(ComPtr<ID3D11Device> device)
 
 void ResourceManager::Init()
 {
-
+	CreateDefaultTexture();
+	CreateDefaultMesh();
+	CreateDefaultShader();
+	CreateDefaultMaterial();
+	CreateDefaultAnimation();
 }
 
 void ResourceManager::CreateDefaultTexture()
@@ -25,17 +33,44 @@ void ResourceManager::CreateDefaultTexture()
 
 void ResourceManager::CreateDefaultMesh()
 {
-
+	//Mesh
+	shared_ptr<Mesh> mesh = make_shared<Mesh>(_device);
+	mesh->SetName(L"Rectangle");
+	mesh->CreateDefaultRectangle();
+	Add(mesh->GetName(), mesh);
 }
 
 void ResourceManager::CreateDefaultShader()
 {
+	auto vertexShader = make_shared<VertexShader>(_device);
+	vertexShader->Create(L"Default.hlsl", "VS", "vs_5_0");
 
+	//인풋레이아웃
+	/// <summary>
+	/// 입력이 어떻게 이뤄져있는지
+	/// </summary>
+	auto inputLayout = make_shared<InputLayout>(_device);
+	inputLayout->Create(VertexTextureData::descs, vertexShader->GetBlob());
+
+	auto pixelShader = make_shared<PixelShader>(_device);
+	pixelShader->Create(L"Default.hlsl", "PS", "ps_5_0");
+
+	//shader
+	shared_ptr<Shader> shader = make_shared<Shader>();
+	shader->SetName(L"Default");
+	shader->_vertexShader = vertexShader;
+	shader->_inputLayout = inputLayout;
+	shader->_pixelShader = pixelShader;
+	Add(shader->GetName(), shader);
 }
 
 void ResourceManager::CreateDefaultMaterial()
 {
-
+	shared_ptr<Material> material = make_shared<Material>();
+	material->SetName(L"Default");
+	material->SetShader(Get<Shader>(L"Default"));
+	material->SetTexture(Get<Texture>(L"Cat"));
+	Add(material->GetName(), material);
 }
 
 void ResourceManager::CreateDefaultAnimation()
