@@ -29,6 +29,13 @@ void ResourceManager::CreateDefaultTexture()
 		texture->Create(L"cat.png");
 		Add(texture->GetName(), texture);
 	}
+
+	{
+		auto texture = make_shared<Texture>(_device);
+		texture->SetName(L"Snake");
+		texture->Create(L"Snake.bmp");
+		Add(texture->GetName(), texture);
+	}
 }
 
 void ResourceManager::CreateDefaultMesh()
@@ -75,5 +82,16 @@ void ResourceManager::CreateDefaultMaterial()
 
 void ResourceManager::CreateDefaultAnimation()
 {
+	shared_ptr<Animation> animation = make_shared<Animation>();
+	animation->SetName(L"SnakeAnim"); 
+	animation->SetTexture(Get<Texture>(L"Snake"));
+	animation->SetLoop(true);
 
+	//각 프레임당 이미지위치정보
+	animation->AddKeyframe(Keyframe{ Vec2{0.f,0.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{100.f,0.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{200.f,0.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{300.f,0.f},Vec2{100.f,100.f},0.1f });
+
+	Add(animation->GetName(), animation);
 }

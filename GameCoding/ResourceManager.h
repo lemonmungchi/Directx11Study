@@ -73,6 +73,7 @@ inline bool ResourceManager::Add(const wstring& key, shared_ptr<T> object)
 	return true;
 }
 
+//이름으로 등록된 컴포넌트 찾기
 template<typename T>
 inline shared_ptr<T> ResourceManager::Get(const wstring& key)
 {

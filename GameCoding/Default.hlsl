@@ -24,6 +24,15 @@ cbuffer TransformData : register(b1)
     row_major matrix matWorld;
 }
 
+cbuffer AnimationData : register(b2)
+{
+    float2 spriteOffset;
+    float2 spriteSize;
+    float2 textureSize;
+    float useAnimation;
+    //CPU->CPU넘겨줄때만 더미 필요
+}
+
 //정점 쉐이더- 위치관련 -> 레스터라이저-정점바탕으로 도형만들고 내/외부 판단 및 보간
 VS_OUTPUT VS(VS_INPUT input)
 {
@@ -36,6 +45,13 @@ VS_OUTPUT VS(VS_INPUT input)
     
     output.position = position;
     output.uv = input.uv;
+    
+    if(useAnimation==1.f)
+    {
+        // 500 -부분 / 1000 전체
+        output.uv *= spriteSize / textureSize;
+        output.uv += spriteOffset / textureSize;
+    }
     
     return output;
 }

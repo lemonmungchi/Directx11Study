@@ -8,6 +8,7 @@
 #include "ResourceManager.h"
 #include "Game.h"
 #include "Mesh.h"
+#include "Animator.h"
 
 SceneManager::SceneManager(shared_ptr<Graphics> graphics)
 	:_graphics(graphics)
@@ -52,29 +53,67 @@ shared_ptr<Scene> SceneManager::LoadTestScene()
 	//제어
 
 	//Camera
-	shared_ptr<GameObject> camera = make_shared<GameObject>(_graphics->GetDevice(), _graphics->GetDeviceContext());
 	{
-		camera->GetOrAddTransform();
-		camera->AddComponent(make_shared<Camera>());
-		scene->AddGameObject(camera);
+		shared_ptr<GameObject> camera = make_shared<GameObject>(_graphics->GetDevice(), _graphics->GetDeviceContext());
+		{
+			camera->GetOrAddTransform();
+			camera->AddComponent(make_shared<Camera>());
+			scene->AddGameObject(camera);
+		}
 	}
 
 	//cat
-	shared_ptr<GameObject> cat = make_shared<GameObject>(_graphics->GetDevice(), _graphics->GetDeviceContext());
 	{
-		cat->GetOrAddTransform();
-		auto meshRenderer = make_shared<MeshRenderer>(_graphics->GetDevice(), _graphics->GetDeviceContext());
-		cat->AddComponent(meshRenderer);
-		//_cat->GetTransform()->GetScale(Vec3(100.f,100.f,100.f));
-		//...
-		//Material
-		auto material = RESOURCES->Get<Material>(L"Default");
-		meshRenderer->SetMaterial(material);
-		//Mesh 부분 
-		auto mesh = RESOURCES->Get<Mesh>(L"Rectangle");
-		meshRenderer->SetMesh(mesh);
+		shared_ptr<GameObject> cat = make_shared<GameObject>(_graphics->GetDevice(), _graphics->GetDeviceContext());
+		{
+			cat->GetOrAddTransform();
+			auto meshRenderer = make_shared<MeshRenderer>(_graphics->GetDevice(), _graphics->GetDeviceContext());
+			cat->AddComponent(meshRenderer);
+			//_cat->GetTransform()->GetScale(Vec3(100.f,100.f,100.f));
+			//...
+			//Material
+			auto material = RESOURCES->Get<Material>(L"Default");
+			meshRenderer->SetMaterial(material);
+			//Mesh 부분 
+			auto mesh = RESOURCES->Get<Mesh>(L"Rectangle");
+			meshRenderer->SetMesh(mesh);
 
-		scene->AddGameObject(cat);
+			scene->AddGameObject(cat);
+		}
+		{
+			auto animator = make_shared<Animator>();
+			cat->AddComponent(animator);
+			auto anim = RESOURCES->Get<Animation>(L"SnakeAnim");
+			animator->SetAnimation(anim);
+		}
 	}
+
+	//cat2
+	{
+		shared_ptr<GameObject> cat = make_shared<GameObject>(_graphics->GetDevice(), _graphics->GetDeviceContext());
+		cat->GetOrAddTransform()->SetPosition(Vec3(-1.f, -1.f, 0.f));
+		{
+			cat->GetOrAddTransform();
+			auto meshRenderer = make_shared<MeshRenderer>(_graphics->GetDevice(), _graphics->GetDeviceContext());
+			cat->AddComponent(meshRenderer);
+			//_cat->GetTransform()->GetScale(Vec3(100.f,100.f,100.f));
+			//...
+			//Material
+			auto material = RESOURCES->Get<Material>(L"Default");
+			meshRenderer->SetMaterial(material);
+			//Mesh 부분 
+			auto mesh = RESOURCES->Get<Mesh>(L"Rectangle");
+			meshRenderer->SetMesh(mesh);
+
+			scene->AddGameObject(cat);
+		}
+		{
+			auto animator = make_shared<Animator>();
+			cat->AddComponent(animator);
+			auto anim = RESOURCES->Get<Animation>(L"SnakeAnim");
+			animator->SetAnimation(anim);
+		}
+	}
+	
 	return scene;
 }

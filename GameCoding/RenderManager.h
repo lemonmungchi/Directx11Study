@@ -14,6 +14,7 @@ private:
 	//고속복사
 	void PushCameraData();
 	void pushTransformData();
+	void PushAnimationData();
 
 	void GatherRenderableObjects();
 	void RenderObjects();
@@ -33,7 +34,8 @@ private:
 	shared_ptr<ConstantBuffer<TransformData>> _transformBuffer;
 
 	//Animation
-
+	AnimationData _animationData;
+	shared_ptr<ConstantBuffer<AnimationData>> _animationBuffer;
 private:
 	//그려주는 파이프라인 상태
 	//RS
