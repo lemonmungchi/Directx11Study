@@ -88,10 +88,17 @@ void ResourceManager::CreateDefaultAnimation()
 	animation->SetLoop(true);
 
 	//각 프레임당 이미지위치정보
-	animation->AddKeyframe(Keyframe{ Vec2{0.f,0.f},Vec2{100.f,100.f},0.1f });
-	animation->AddKeyframe(Keyframe{ Vec2{100.f,0.f},Vec2{100.f,100.f},0.1f });
-	animation->AddKeyframe(Keyframe{ Vec2{200.f,0.f},Vec2{100.f,100.f},0.1f });
-	animation->AddKeyframe(Keyframe{ Vec2{300.f,0.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{0.f,100.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{100.f,100.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{200.f,100.f},Vec2{100.f,100.f},0.1f });
+	animation->AddKeyframe(Keyframe{ Vec2{300.f,100.f},Vec2{100.f,100.f},0.1f });
 
 	Add(animation->GetName(), animation);
+
+	// XML + JSON
+	//외부라이브러리 활용
+	animation->Save(L"TestAnim.xml");
+
+	shared_ptr<Animation> anim2 = make_shared<Animation>();
+	anim2->Load(L"TestAnim.xml");
 }

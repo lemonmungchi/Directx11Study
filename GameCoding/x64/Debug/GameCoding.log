@@ -1,27 +1,34 @@
-﻿  SceneManager.cpp
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\SceneManager.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\SceneManager.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\GameObject.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Camera.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\MeshRenderer.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Material.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Shader.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\ResourceManager.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Game.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Mesh.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Animator.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+﻿  Animation.cpp
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Animation.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Animation.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\ResourceManager.h(86): warning C4715: 'ResourceManager::Get<Material>': 모든 제어 경로에서 값을 반환하지는 않습니다.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\ResourceManager.h(86): warning C4715: 'ResourceManager::Get<Mesh>': 모든 제어 경로에서 값을 반환하지는 않습니다.
-C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\ResourceManager.h(86): warning C4715: 'ResourceManager::Get<Animation>': 모든 제어 경로에서 값을 반환하지는 않습니다.
-DirectXTex_Debug.lib(DirectXTexImage.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexImage.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(DirectXTexWIC.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexWIC.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(DirectXTexD3D11.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexD3D11.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(DirectXTexUtil.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexUtil.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(DirectXTexConvert.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexConvert.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(2824,53): warning C4244: '인수': 'const wchar_t'에서 'const _Elem'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Elem=char
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(2664): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<const wchar_t*>(_Iter,const _Iter)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Iter=const wchar_t *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(2664): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<const wchar_t*>(_Iter,const _Iter)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Iter=const wchar_t *
+          ]
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Animation.cpp(17): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\GameCoding\Animation.cpp(17): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
 DirectXTex_Debug.lib(DirectXTexMipMaps.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexMipMaps.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(DirectXTexCompress.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(DirectXTexCompress.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(BC.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(BC.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(BC4BC5.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(BC4BC5.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-DirectXTex_Debug.lib(BC6HBC7.obj) : warning LNK4099: 'DirectXTex.pdb' PDB를 'DirectXTex_Debug.lib(BC6HBC7.obj)' 또는 'C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\DirectXTex.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   GameCoding.vcxproj -> C:\Users\khc11\OneDrive\바탕 화면\Project\Directx11Study\Binaries\GameCoding.exe
